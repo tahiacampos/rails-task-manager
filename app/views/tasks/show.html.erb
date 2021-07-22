@@ -1,8 +1,18 @@
-<p><%= @task.details %></p>
-<ul><%= link_to "Edit task", edit_task_path(@task)%></ul>
-<ul><%= link_to "Delete #{@task.title}",
-            task_path(@task),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %></ul>
-<ul><%= link_to "Back", tasks_path%></ul>
-
+<div class= "container">
+  <div class= "row">
+    <p>
+      <h4><%= @task.details %></h4>
+    </p>
+      <% if @task.completed %>
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+      <% else %>
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDisabled" disabled>
+      <% end %>
+  </div>
+  <ul><%= link_to "Edit task", edit_task_path(@task)%></ul>
+  <ul><%= link_to "Delete #{@task.title}",
+              task_path(@task),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %></ul>
+  <ul><%= link_to "Back", tasks_path%></ul>
+</div>
